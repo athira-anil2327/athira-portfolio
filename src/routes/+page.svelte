@@ -215,7 +215,7 @@
 <section id="contact" class="contact pb-32">
   <div class="container">
     <div class="contact-box bg-white/[0.03] border-2 border-orange/50 py-24 px-10 text-center rounded-sm">
-      <h2 class="text-5xl font-black mb-6">Let's build <span class="text-yellow italic">impactful</span> AI.</h2>
+      <h2 class="text-5xl font-black mb-6">Let's <span class="text-yellow italic">connect</span></h2>
       <p class="text-gray max-w-2xl mx-auto mb-12 text-lg">Currently based in {data.location}. Open for research collaborations and machine learning engineering opportunities.</p>
       <div class="contact-links flex flex-wrap justify-center gap-6">
         <a href="mailto:{data.contact.email}" class="btn">Start a Conversation</a>
