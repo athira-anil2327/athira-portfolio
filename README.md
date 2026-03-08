@@ -1,4 +1,4 @@
-# 🚀 Athira's Portfolio | AI & ML Research Enthusiast
+# Athira's Portfolio | AI & ML Research Enthusiast
 
 A high-performance, professional developer portfolio built with **SvelteKit** and **Tailwind CSS v4**. This project showcases my journey in Machine Learning, Computer Vision, and Full-stack Development.
 
