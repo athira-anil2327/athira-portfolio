@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@theme {
+  --color-amber-400: #facc15;
+  --color-amber-500: #eab308;
+  --color-black: #0a0a0a;
+  --color-black-light: #121212;
+  --color-yellow: #ffcc00;
+  --color-orange: #ff6600;
+  --color-gray: #888888;
+}
+
+@layer base {
+  body {
+    @apply bg-[#0a0a0a] text-white;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1200px] mx-auto px-6;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-block py-3 px-8 bg-[#ffcc00] text-[#0a0a0a] font-bold uppercase cursor-pointer transition-all duration-200 no-underline;
+  }
+
+  .btn:hover {
+    @apply bg-[#ff6600] -translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply bg-transparent text-white border border-white/20 hover:border-white hover:bg-white/5;
+  }
+
+  /* Sections */
+  section {
+    @apply py-24;
+  }
+
+  .section-title {
+    @apply text-2xl font-black uppercase tracking-widest mb-16;
+  }
+
+  /* Hero */
+  .hero {
+    @apply min-h-[80vh] flex items-center pt-16;
+    background: radial-gradient(circle at 5% 30%, rgba(255, 204, 0, 0.08) 0%, rgba(10, 10, 10, 0) 60%);
+  }
+
+  .hero-grid {
+    @apply grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-16 items-center;
+  }
+
+  .hero-name {
+    @apply text-4xl lg:text-6xl font-black leading-tight my-4;
+  }
+
+  .badge {
+    @apply inline-block py-2 px-5 bg-[#121212] border border-[#ffcc00] text-[#ffcc00] text-[0.75rem] font-bold uppercase tracking-widest;
+  }
+
+  .subtitle {
+    @apply text-lg text-[#888888] max-w-[650px] mb-12 leading-relaxed;
+  }
+
+  .hero-btns {
+    @apply flex gap-6 flex-wrap;
+  }
+
+  /* Photo Wrapper */
+  .photo-wrapper {
+    @apply relative w-[300px] h-[380px] mx-auto lg:ml-auto;
+  }
+
+  .photo-placeholder {
+    @apply w-full h-full bg-[#121212] border border-white/10 flex items-center justify-center text-[0.8rem] font-bold text-[#888888] relative z-[2] overflow-hidden;
+  }
+
+  .photo-decoration {
+    @apply absolute top-5 left-5 w-full h-full border-2 border-[#ffcc00] z-[1];
+  }
+
+  /* Experience */
+  .exp-list {
+    @apply flex flex-col gap-12;
+  }
+
+  .exp-item {
+    @apply border-l-2 border-[#121212] pl-8 transition-colors duration-300;
+  }
+
+  .exp-item:hover {
+    @apply border-[#ffcc00];
+  }
+
+  .exp-info h3 {
+    @apply text-xl mb-1;
+  }
+
+  .org {
+    @apply font-bold uppercase text-[0.9rem] mb-4;
+  }
+
+  /* Projects */
+  .project-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+
+  .project-card {
+    @apply bg-[#121212] p-10 border border-white/5 flex flex-col h-full;
+  }
+
+  .project-top h3 {
+    @apply text-xl mt-2;
+  }
+
+  .status-badge {
+    @apply text-[0.65rem] bg-[#ff6600] text-white px-2 py-1 font-extrabold uppercase;
+  }
+
+  .project-card p {
+    @apply text-[#888888] my-6 text-[0.95rem] flex-grow;
+  }
+
+  .tags {
+    @apply flex flex-wrap gap-3;
+  }
+
+  .tags span {
+    @apply text-[0.65rem] font-bold px-3 py-1 border border-white/10 text-[#ffcc00];
+  }
+
+  /* Education */
+  .education-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-20;
+  }
+
+  .edu-item {
+    @apply mb-10;
+  }
+
+  .edu-item h3 {
+    @apply text-xl;
+  }
+
+  .year {
+    @apply text-[0.8rem] text-[#888888];
+  }
+
+  .cert-item {
+    @apply text-[0.9rem] mb-3 pl-4 border-l-2 border-[#ff6600];
+  }
+
+  .lead-item {
+    @apply mt-4 text-[0.9rem];
+  }
+
+  /* Contact */
+  .contact-box {
+    @apply bg-[#121212] py-20 px-8 text-center border border-[#ffcc00];
+  }
+
+  .contact-box h2 {
+    @apply text-4xl mb-4;
+  }
+
+  .contact-links {
+    @apply flex gap-6 justify-center mt-10;
+  }
+}
+
+@layer utilities {
+  .text-yellow { color: #ffcc00; }
+  .text-orange { color: #ff6600; }
+  .text-gray { color: #888888; }
+}
