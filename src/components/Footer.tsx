@@ -40,7 +40,7 @@ export default function Footer() {
       
       <div className="max-w-7xl mx-auto mt-24 pt-6 border-t border-aloewood/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-sans text-milk-tea z-10 relative">
         <p>© 2026 Athira Adiparambil Anil. All rights reserved.</p>
-        <p>Designed & Built with <span className="text-sakura">♥</span></p>
+        <p>Designed & Built by Athira Anil</p>
       </div>
     </footer>
   );

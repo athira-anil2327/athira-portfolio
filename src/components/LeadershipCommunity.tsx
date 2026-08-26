@@ -18,7 +18,7 @@ export default function LeadershipCommunity() {
     {
       role: 'MEDIA HEAD',
       org: 'ACM Student Chapter',
-      description: 'Contributed to technical-community initiatives, event promotion, media and student engagement.',
+      description: 'Contributed to technical-community initiatives, event promotion, media and student engagement. Conducted a National level hackathon "Ascend" and worked on its media control, poster development and video promotion.',
       icon: Share2,
     },
   ];

@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
-import { Moon, Sun, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Moon, Sun } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -7,12 +7,8 @@ export default function Navbar() {
   // Theme state
   const [theme, setTheme] = useState('dark');
   
-  // Popups state
   const [showThemePopup, setShowThemePopup] = useState(false);
   
-  // Refs for clicking outside
-  const themeContainerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // Scroll listener
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -25,31 +21,27 @@ export default function Navbar() {
       document.documentElement.setAttribute('data-theme', 'light');
     }
     
-    // Popups init
-    const themePopupDismissed = localStorage.getItem('theme-popup-dismissed');
+    // Auto popup for first-time session
+    let showTimer: number;
+    let hideTimer: number;
+    const hasSeenPopup = sessionStorage.getItem('theme-popup-seen');
     
-    if (!themePopupDismissed) {
-      setTimeout(() => setShowThemePopup(true), 1500);
+    if (!hasSeenPopup) {
+      showTimer = window.setTimeout(() => {
+        setShowThemePopup(true);
+        hideTimer = window.setTimeout(() => {
+          setShowThemePopup(false);
+          sessionStorage.setItem('theme-popup-seen', 'true');
+        }, 4000);
+      }, 1500);
     }
-    
-    // Click outside listener
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        showThemePopup && 
-        themeContainerRef.current && 
-        !themeContainerRef.current.contains(e.target as Node)
-      ) {
-        dismissThemePopup();
-      }
-    };
-    
-    document.addEventListener('mousedown', handleClickOutside);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('mousedown', handleClickOutside);
+      if (showTimer) clearTimeout(showTimer);
+      if (hideTimer) clearTimeout(hideTimer);
     };
-  }, [showThemePopup]);
+  }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
@@ -61,13 +53,6 @@ export default function Navbar() {
     } else {
       document.documentElement.removeAttribute('data-theme');
     }
-    
-    if (showThemePopup) dismissThemePopup();
-  };
-
-  const dismissThemePopup = () => {
-    setShowThemePopup(false);
-    localStorage.setItem('theme-popup-dismissed', 'true');
   };
 
   const navLinks = [
@@ -108,8 +93,8 @@ export default function Navbar() {
         {/* Right side buttons container */}
         <div className="flex items-center space-x-6">
           
-          {/* Theme Toggle & Popup Wrapper */}
-          <div ref={themeContainerRef} className="relative flex items-center justify-center">
+          {/* Theme Toggle & Hover Tooltip */}
+          <div className="relative flex items-center justify-center group">
             <button 
               onClick={toggleTheme}
               className="text-text-beige hover:text-sakura transition-colors flex items-center justify-center"
@@ -118,35 +103,19 @@ export default function Navbar() {
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             
-            {showThemePopup && (
-              <div className="absolute top-full right-0 md:right-auto md:left-1/2 md:-translate-x-1/2 mt-6 pointer-events-auto w-[240px] p-4 rounded-xl shadow-xl border animate-in fade-in slide-in-from-top-4 duration-500 transition-all bg-dark-chocolate border-milk-tea text-text-cream z-50">
-                <button onClick={dismissThemePopup} className="absolute top-2 right-2 opacity-60 hover:opacity-100 transition-opacity">
-                  <X size={14} />
-                </button>
-                {/* Arrow pointing exactly at the center of the theme icon */}
-                <div className="absolute -top-2 right-[6px] md:right-auto md:left-1/2 md:-translate-x-1/2 w-4 h-4 rotate-45 border-l border-t bg-dark-chocolate border-milk-tea"></div>
-                
-                <h4 className="font-serif font-bold text-base mb-1 flex items-center gap-1">
+            {/* Hover & Auto Tooltip Box */}
+            <div className={`absolute top-full right-0 mt-3 pointer-events-none transition-opacity duration-500 p-3.5 rounded-xl shadow-xl border bg-dark-chocolate border-milk-tea text-text-cream z-50 ${showThemePopup ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+              {/* Carved Arrow pointing up to the icon */}
+              <div className="absolute -top-1.5 right-[4px] w-3 h-3 rotate-45 border-l border-t bg-dark-chocolate border-milk-tea"></div>
+              <div className="flex flex-col gap-1 w-[180px] whitespace-normal">
+                <span className="font-serif font-bold text-sm">
                   A little lighter? ✨
-                </h4>
-                <p className="text-xs font-sans opacity-90 leading-relaxed mb-3">
-                  Tap the ☀ icon whenever you want to switch to my matcha side.
-                </p>
-                <button onClick={dismissThemePopup} className="text-xs font-medium uppercase tracking-widest text-sakura hover:opacity-80 transition-opacity">
-                  Got it ✕
-                </button>
+                </span>
+                <span className="text-[11px] font-sans opacity-90 leading-relaxed text-text-beige">
+                  Tap the icon whenever you want to switch to my matcha side.
+                </span>
               </div>
-            )}
-          </div>
-          
-          {/* Let's Connect */}
-          <div className="relative hidden md:flex items-center justify-center">
-            <a
-              href="#contact"
-              className="px-6 py-2 rounded-full bg-transparent border border-sakura text-text-cream hover:bg-sakura hover:text-dark-chocolate hover:border-sakura transition-all duration-300 font-medium tracking-wide text-sm"
-            >
-              Let's Connect
-            </a>
+            </div>
           </div>
 
           {/* Mobile menu placeholder */}

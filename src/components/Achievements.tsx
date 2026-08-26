@@ -16,6 +16,21 @@ export default function Achievements() {
       title: "INTEL UNNATI INDUSTRIAL TRAINING",
       subtitle: "Machine Learning Internship Certification",
       icon: Medal,
+    },
+    {
+      title: "TechA Data Visualization using Power BI Certification",
+      subtitle: "Infosys Springboard · December 20, 2025",
+      icon: Award,
+    },
+    {
+      title: "Agile Scrum Certification",
+      subtitle: "Infosys Springboard · December 14, 2025",
+      icon: Award,
+    },
+    {
+      title: "Power BI for Business Professionals",
+      subtitle: "Infosys Springboard · December 8, 2025",
+      icon: Award,
     }
   ];
 
