@@ -1,0 +1,208 @@
+/* Elegant editorial fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-brand-bg: #1D1512;
+  --color-brand-bg-card: #241914;
+  --color-brand-bg-card-hover: #2D201A;
+  --color-dark-chocolate: #413025;
+  --color-aloewood: #7F5836;
+  --color-milk-tea: #AA7F66;
+  --color-sakura: #EC9C9D;
+  --color-sakura-rgb: 236, 156, 157;
+  --color-misty-rose: #F2CF2A;
+  --color-text-cream: #F2DED2;
+  --color-text-beige: #D8C5B8;
+  
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--color-text-beige);
+  background-color: var(--color-brand-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme="light"] {
+  --color-brand-bg: #E8EBD8; /* Main background */
+  --color-brand-bg-card: #F8F9EE; /* Card background */
+  --color-brand-bg-card-hover: #EEF1DC; /* Secondary background */
+  --color-dark-chocolate: #DDE3C5; /* Soft sage */
+  --color-aloewood: #7D8B55; /* Matcha green */
+  --color-milk-tea: #687052; /* Secondary text */
+  --color-sakura: #59683D; /* Dark matcha (accents, active states) */
+  --color-sakura-rgb: 89, 104, 61;
+  --color-misty-rose: #DDE3C5; 
+  --color-text-cream: #25271F; /* Primary text */
+  --color-text-beige: #2F3325; /* Body text */
+  color-scheme: light;
+}
+
+@theme {
+  --color-brand-bg: var(--color-brand-bg);
+  --color-brand-bg-card: var(--color-brand-bg-card);
+  --color-brand-bg-card-hover: var(--color-brand-bg-card-hover);
+  --color-dark-chocolate: var(--color-dark-chocolate);
+  --color-aloewood: var(--color-aloewood);
+  --color-milk-tea: var(--color-milk-tea);
+  --color-sakura: var(--color-sakura);
+  --color-misty-rose: var(--color-misty-rose);
+  --color-text-cream: var(--color-text-cream);
+  --color-text-beige: var(--color-text-beige);
+}
+
+body, div, span, h1, h2, h3, h4, p, a, svg, path, circle, section, footer, nav, button {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-brand-bg);
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base custom styles */
+.text-shadow-glow {
+  text-shadow: 0 0 10px rgba(var(--color-sakura-rgb), 0.3);
+}
+
+/* Glassmorphism/Card styling */
+.glass-card {
+  background: var(--color-brand-bg-card);
+  border: 1px solid var(--color-aloewood);
+  border-radius: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: var(--color-brand-bg-card-hover);
+}
+
+/* Image organic shape */
+.organic-shape {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morph 8s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 4s infinite;
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.botanical-decor {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+:root[data-theme="light"] .botanical-decor {
+  opacity: 1;
+}
+
+
+
+/* Theme-dependent Contact Buttons */
+.contact-btn-linkedin {
+  background-color: #E7A8AF;
+  color: #1E1715;
+  border: 1px solid transparent;
+}
+.contact-btn-linkedin:hover {
+  background-color: #D78F98;
+}
+:root[data-theme="light"] .contact-btn-linkedin {
+  background-color: #DCE6C8;
+  color: #2E3A2B;
+}
+:root[data-theme="light"] .contact-btn-linkedin:hover {
+  background-color: #C8D3B4;
+}
+
+.contact-btn-github {
+  background-color: #8D6A73;
+  color: #1E1715;
+  border: 1px solid transparent;
+}
+.contact-btn-github:hover {
+  background-color: #7A5961;
+}
+:root[data-theme="light"] .contact-btn-github {
+  background-color: #CFE3D6;
+  border-color: transparent;
+  color: #2E3A2B;
+}
+:root[data-theme="light"] .contact-btn-github:hover {
+  background-color: #BCD0C3;
+}
+
+.contact-btn-email {
+  background-color: #E3B08E;
+  color: #1E1715;
+  border: 1px solid transparent;
+}
+.contact-btn-email:hover {
+  background-color: #D49C79;
+}
+:root[data-theme="light"] .contact-btn-email {
+  background-color: #E6EFCB;
+  border-color: transparent;
+  color: #2E3A2B;
+}
+:root[data-theme="light"] .contact-btn-email:hover {
+  background-color: #D5DEBA;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-aloewood);
+  border-radius: 10px;
+}
