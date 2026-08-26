@@ -109,10 +109,12 @@ export default function Navbar() {
               <div className="absolute -top-1.5 right-[4px] w-3 h-3 rotate-45 border-l border-t bg-dark-chocolate border-milk-tea"></div>
               <div className="flex flex-col gap-1 w-[180px] whitespace-normal">
                 <span className="font-serif font-bold text-sm">
-                  A little lighter? ✨
+                  {theme === 'dark' ? 'A little lighter? ✨' : 'A little darker? 🍫'}
                 </span>
                 <span className="text-[11px] font-sans opacity-90 leading-relaxed text-text-beige">
-                  Tap the icon whenever you want to switch to my matcha side.
+                  {theme === 'dark'
+                    ? 'Tap the icon whenever you want to switch to my matcha side.'
+                    : 'Tap the icon whenever you want to switch to my dark chocolate side.'}
                 </span>
               </div>
             </div>
