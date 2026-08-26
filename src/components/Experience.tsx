@@ -6,7 +6,7 @@ export default function Experience() {
 
   const experiences = [
     {
-      role: 'ML Research Intern at Integrated Command & Control Unit (ICCC)',
+      role: 'ML Research Intern at Integrated Command & Control Centre (ICCC)',
       company: 'Saintgits College of Engineering × National Chung Cheng University',
       year: 'July 2025 – Present',
       status: 'ONGOING',
