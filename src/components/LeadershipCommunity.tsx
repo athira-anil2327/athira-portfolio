@@ -12,12 +12,14 @@ export default function LeadershipCommunity() {
     {
       role: 'PROGRAM & EVENT COORDINATOR',
       org: 'Saintgits Web and App Development Group (SWAG)',
+      year: '2025-27',
       description: 'Program and event coordination for a student-led technical community focused on making web development accessible, engaging and collaborative. Organized learning sessions and technical activities.',
       icon: CalendarCheck,
     },
     {
       role: 'MEDIA HEAD',
       org: 'ACM Student Chapter',
+      year: '2025-26',
       description: 'Contributed to technical-community initiatives, event promotion, media and student engagement. Conducted a National level hackathon "Ascend" and worked on its media control, poster development and video promotion.',
       icon: Share2,
     },
@@ -44,20 +46,22 @@ export default function LeadershipCommunity() {
             const Icon = item.icon;
             return (
               <div key={index} className="glass-card p-8 flex flex-col hover:border-sakura/50 transition-all duration-300">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-brand-bg border border-aloewood flex items-center justify-center text-milk-tea">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 shrink-0 rounded-full bg-brand-bg border border-aloewood flex items-center justify-center text-milk-tea">
                     <Icon size={20} />
                   </div>
-                  <div>
-                    <h3 className="text-sm font-sans font-medium text-sakura tracking-wide uppercase">{item.role}</h3>
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start gap-2">
+                      <h3 className="text-sm font-sans font-medium text-sakura tracking-wide uppercase">{item.role}</h3>
+                      {item.year && (
+                        <div className="shrink-0 text-[10px] text-milk-tea tracking-widest uppercase border border-aloewood/30 px-2 py-1 rounded">
+                          {item.year}
+                        </div>
+                      )}
+                    </div>
                     <p className="text-text-cream text-xs font-serif italic mt-1">{item.org}</p>
                   </div>
                 </div>
-                {item.year && (
-                  <div className="text-[10px] text-milk-tea tracking-widest uppercase mb-3 border border-aloewood/30 w-max px-2 py-1 rounded">
-                    {item.year}
-                  </div>
-                )}
                 <p className="text-text-beige text-[14px] font-sans leading-relaxed">
                   {item.description}
                 </p>
@@ -74,9 +78,9 @@ export default function LeadershipCommunity() {
         {/* Leadership Progression Timeline */}
         <div className="mt-12 glass-card p-8">
           <p className="text-sakura text-xs uppercase tracking-widest mb-8 font-medium text-center">Leadership Progression</p>
-          <div className="flex flex-col md:flex-row items-center justify-between relative max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-start justify-between relative max-w-5xl mx-auto">
             {/* Connecting Line (desktop only) */}
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-aloewood/30 -translate-y-1/2 z-0"></div>
+            <div className="hidden md:block absolute top-2 left-0 w-full h-px bg-aloewood/30 z-0"></div>
             
             {timeline.map((stage, index) => (
               <div key={index} className="flex flex-col items-center z-10 w-full md:w-auto relative mb-8 md:mb-0">

@@ -38,7 +38,7 @@ export default function Hero() {
               View My Work <ArrowRight size={18} />
             </a>
             <a 
-              href="/resume/resume.pdf" 
+              href="/resume/Athira_Anil_Resume.pdf" 
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 border border-milk-tea text-text-cream px-8 py-3 rounded-full font-medium transition-all hover:bg-milk-tea/20 hover:border-milk-tea"
